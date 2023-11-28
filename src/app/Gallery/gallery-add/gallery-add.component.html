@@ -1,0 +1,39 @@
+<mat-card>
+    <mat-card-header>
+        Add Events
+    </mat-card-header>
+    <mat-card-content>
+        <form #galleryForm="ngForm" (ngSubmit)="onSave(galleryForm)">
+            <div class="row">
+                <div class="col-md-4">
+                    <!-- Form Creating the Fields or Border outside the input tag -->
+                    <mat-form-field>
+                        <!-- creating responsive placeholder or label -->
+                        <!-- <mat-label>Enter Title</mat-label> -->
+                        <input matInput type="text"  placeholder="Title" [(ngModel)]="gallery.title" name="title" required/>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                    <mat-form-field>
+                        <mat-label>Enter Subtitle</mat-label>
+                        <input matInput type="text" [(ngModel)]="gallery.subTitle" name="subTitle" />
+                    </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                    <mat-form-field>
+                        <mat-label>Select Date</mat-label>
+                        <input matInput [matDatepicker]="picker" [(ngModel)]="gallery.date" name="date">
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker>
+                          
+                        </mat-datepicker>
+                    </mat-form-field>
+                </div>
+            </div>
+            <mat-card-actions>
+                <button type="submit">Save</button>
+            </mat-card-actions>
+        </form>
+    </mat-card-content>
+   
+</mat-card>
