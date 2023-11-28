@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { GalleryAddComponent } from '../gallery-add/gallery-add.component';
 import { Gallery } from '../../../../shared-library/Model/GalleryModel';
+import { GalleryService } from '../../../../shared-library/Service/gallery.service';
 
 @Component({
   selector: 'app-gallery-list',
@@ -26,7 +27,7 @@ export class GalleryListComponent {
     // Add more sample data as needed...
 ];
 
-  constructor(private dialog: MatDialog){
+  constructor(private dialog: MatDialog,private galleryDataService:GalleryService){
     
   }
 
@@ -41,5 +42,9 @@ export class GalleryListComponent {
         }
       }
     )
+  }
+
+  sharedData(event:Gallery){
+    this.galleryDataService.setData(event)
   }
 }
