@@ -3,7 +3,7 @@
     <mat-card-content>
         <div class="row">
             <div class="col-sm-3 offset-sm9">
-                <a  [routerLink]="['gallery-add']" class="btn btn-block btn-link" type="button">Add Event</a>
+                <a  [routerLink]="['gallery-add']"  class="btn btn-block btn-link" type="button">Add Event</a>
             </div>
         </div>
         <mat-accordion class="example-headers-align">
@@ -14,6 +14,7 @@
                             <img [src]="link"/>
                         </div>
                     </div>
+                    <a [routerLink]="['gallery-add']" (click)="sharedData(event)" [queryParams]="{data:event.id}">Click here to edit</a>
                 </ng-template>
                 <mat-expansion-panel [expanded]="i == 0">
                     <mat-expansion-panel-header>
